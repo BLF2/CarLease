@@ -48,4 +48,13 @@ public class DbRead {
 		}
 		return list;
 	}
+	public LinkedList <LoginCar> DbReadLoginCarByLoginId(int loginId)throws SQLException{
+		LinkedList <LoginCar> list = new LinkedList<LoginCar>();
+		String sql = "select * from LoginCar where LoginId="+loginId+";";
+		ResultSet rs = state.executeQuery(sql);
+		while(rs.next()){
+			list.add(new LoginCar(Integer.parseInt(rs.getString("LoginId")),Integer.parseInt(rs.getString("CarId"))));
+		}
+		return list;
+	}
 }

@@ -1,5 +1,9 @@
 package login;
 
+import java.sql.SQLException;
+
+import dbOp.*;
+
 public class LoginFactory {
 	private int loginId;
 	private String loginName;
@@ -44,8 +48,9 @@ public class LoginFactory {
 		if(loginNum == 1 || loginNum == 2)
 			this.loginNum = loginNum;
 	}
-	public LoginInfo getLoginInfo(){
-		//数据库持久化
-		return null;
+	public LoginInfo getLoginInfo() throws SQLException{
+		LoginInfo li = new LoginInfo(loginId,loginName,loginPswd,loginNum);
+		li.setLoginId(new DbRead().DbReadLoginInfoByName(loginName).getLoginId());
+		return li;
 	}
 }

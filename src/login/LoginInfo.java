@@ -12,6 +12,9 @@ public class LoginInfo {
 		this.loginPswd = loginPswd;
 		this.loginNum = loginNum;
 	}
+	public void setLoginId(int loginId){
+		this.loginId = loginId;
+	}
 	public int getLoginId() {
 		return loginId;
 	}

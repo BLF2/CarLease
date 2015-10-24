@@ -1,5 +1,9 @@
 package car;
 
+import java.sql.SQLException;
+
+import dbOp.*;
+
 public class CarFactory {
 	private int carId;
 	private String carPlate;//牌照
@@ -43,9 +47,12 @@ public class CarFactory {
 		if(carReaturnDate.length() == 8)
 			this.carReaturnDate = carReaturnDate;
 	}
-	public CarInfo getCarInfo(){
-		//数据库持久化
-		//carInfo ci = new carInfo(this.get);
+	public CarInfo getCarInfo() throws SQLException{
+		CarInfo ci = new CarInfo(this.carId,this.carPlate,this.carModel,this.carLeaseDate,this.carReaturnDate);
+		if(new DbInsert().DbInsertCarInfo(ci) > 0){
+			ci.setCarId(new DbRead().DbReadCarInfoByPlate(carPlate).getCarId());
+			return ci;
+		}
 		return null;
 	}
 }
