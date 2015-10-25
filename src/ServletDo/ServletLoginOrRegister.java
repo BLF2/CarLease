@@ -23,9 +23,9 @@ public class ServletLoginOrRegister extends HttpServlet {
 	private void Reponse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cmd = request.getParameter("Submit");
 		if(cmd.equals("login")){
-			response.sendRedirect("");
+			//response.sendRedirect("");
 		}else if(cmd.equals("register")){
-			response.sendRedirect("");
+		//	response.sendRedirect("");
 		}else if(cmd.equals("Login")){
 			
 		}else if(cmd.equals("Register")){
