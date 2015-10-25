@@ -16,7 +16,7 @@ public class LoginFactory {
 	public String getLoginName() {
 		return loginName;
 	}
-	public void setLoginName(String loginName) {
+	public boolean setLoginName(String loginName) {
 		boolean flag = true;
 		for(int i = 0;i < loginName.length();i++){
 			if(!(Character.isAlphabetic(loginName.charAt(i))|| Character.isDigit(loginName.charAt(i))|| loginName.charAt(i) == '_')){
@@ -26,6 +26,7 @@ public class LoginFactory {
 		}
 		if(flag)
 			this.loginName = loginName;
+		return flag;
 	}
 	public String getLoginPswd() {
 		return loginPswd;

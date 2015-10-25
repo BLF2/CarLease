@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>Register</title>
+</head>
+<body>
+<form>
+	<table class="table">
+		<tr>
+			<td>
+				用户名：
+			</td>
+			<td>
+				<input type="text" maxlength="11" required="required" name="LoginName"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				密码：
+			</td>
+			<td>
+				<input type="password" required="required" name="LoginPswd">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				确认密码：
+			</td>
+			<td>
+				<input type="password" required="required" name="LoginPswd1">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type="submit" name="Submit" value="Register" onclick="return check()">提交</button>
+			</td>
+			<td>
+				<button type="reset" >重置</button>
+			</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+	function check(){
+		var loginpswd = document.getElementsByName("LoginPswd");
+		var loginpswd1 = document.getElementsByName("LoginPswd1");
+		if(loginpswd == loginpswd1){
+			alert("两次输入的密码不匹配！");
+			return false;
+		}
+		return true;
+	} 
+</script>
+</body>
+</html>
